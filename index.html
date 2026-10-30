@@ -1,0 +1,651 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vận tải Sự Nghiệp – Vận chuyển máy công trình</title>
+<meta name="description" content="CÔNG TY TNHH DỊCH VỤ THƯƠNG MẠI VẬN TẢI DỰNG SỰ NGHIỆP – vận chuyển xe cẩu, máy gặt, máy lu và máy móc thiết bị công trình bằng đường bộ, an toàn và đúng hẹn.">
+<meta property="og:title" content="Vận tải Sự Nghiệp – Vận chuyển máy công trình">
+<meta property="og:description" content="Vận chuyển xe cẩu, máy gặt, máy lu và máy móc thiết bị công trình bằng đường bộ.">
+<meta property="og:image" content="assets/logo.png">
+<meta name="theme-color" content="#132B4F">
+<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange: #F59E0B;
+    --orange-dark: #D97706;
+    --orange-soft: #FEF3C7;
+    --navy: #132B4F;
+    --navy-deep: #0B1C36;
+    --navy-mid: #1E3A63;
+    --ink: #1F2937;
+    --muted: #5B6676;
+    --line: #E3E8EF;
+    --bg: #FFFFFF;
+    --bg-alt: #F4F6FA;
+    --radius: 14px;
+    --shadow: 0 10px 30px rgba(11, 28, 54, .10);
+    --max: 1160px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+  body {
+    margin: 0;
+    font-family: "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--ink);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+  }
+  img, svg { max-width: 100%; display: block; }
+  a { color: inherit; }
+  h1, h2, h3 { line-height: 1.25; margin: 0 0 .5em; color: var(--navy); }
+  p { margin: 0 0 1em; }
+  .container { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+  .skip { position: absolute; left: -999px; top: 0; background: var(--orange); color: var(--navy-deep); padding: 8px 14px; z-index: 100; }
+  .skip:focus { left: 8px; top: 8px; }
+  :focus-visible { outline: 3px solid var(--orange); outline-offset: 2px; }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    min-height: 48px; padding: 12px 24px; border-radius: 10px;
+    font: inherit; font-weight: 700; text-decoration: none; cursor: pointer;
+    border: 2px solid transparent; transition: background .2s, transform .15s, box-shadow .2s, color .2s;
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn-primary { background: var(--orange); color: var(--navy-deep); box-shadow: 0 6px 18px rgba(245, 158, 11, .35); }
+  .btn-primary:hover { background: #FBB12E; box-shadow: 0 8px 24px rgba(245, 158, 11, .45); }
+  .btn-ghost { border-color: rgba(255,255,255,.55); color: #fff; }
+  .btn-ghost:hover { background: rgba(255,255,255,.1); border-color: #fff; }
+  .btn svg { width: 20px; height: 20px; }
+
+  /* Header */
+  .site-header {
+    position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.96);
+    backdrop-filter: blur(8px); border-bottom: 1px solid var(--line);
+  }
+  .nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 72px; }
+  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; min-width: 0; }
+  .brand img { height: 60px; width: auto; }
+  .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; margin: 0; padding: 0; }
+  .nav-links a { text-decoration: none; font-weight: 600; color: var(--navy); padding: 10px 12px; border-radius: 8px; }
+  .nav-links a:hover { color: var(--orange-dark); background: var(--bg-alt); }
+  .nav .btn { min-height: 44px; padding: 10px 18px; }
+  .menu-toggle { display: none; background: none; border: 0; width: 44px; height: 44px; border-radius: 8px; cursor: pointer; color: var(--navy); }
+  .menu-toggle svg { width: 26px; height: 26px; margin: auto; }
+
+  /* Hero */
+  .hero {
+    position: relative; overflow: hidden; color: #fff;
+    background:
+      radial-gradient(900px 400px at 85% 10%, rgba(245,158,11,.18), transparent 60%),
+      linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%);
+  }
+  .hero::after {
+    content: ""; position: absolute; inset: auto 0 0 0; height: 10px;
+    background: repeating-linear-gradient(-45deg, var(--orange) 0 22px, var(--navy-deep) 22px 44px);
+  }
+  .hero-inner { display: grid; grid-template-columns: 1.05fr 1fr; gap: 40px; align-items: center; padding: 72px 20px 88px; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px; font-size: .85rem; font-weight: 700;
+    letter-spacing: .06em; text-transform: uppercase; color: var(--orange);
+  }
+  .eyebrow::before { content: ""; width: 28px; height: 3px; background: var(--orange); border-radius: 2px; }
+  .company-name {
+    display: block; margin: 14px 0 12px; font-size: .95rem; font-weight: 700; letter-spacing: .02em;
+    color: #fff; background: rgba(255,255,255,.08); border-left: 4px solid var(--orange);
+    padding: 10px 14px; border-radius: 0 8px 8px 0;
+  }
+  .hero h1 { color: #fff; font-size: clamp(2rem, 4.6vw, 3.3rem); font-weight: 800; margin: 8px 0 16px; }
+  .hero h1 em { font-style: normal; color: var(--orange); }
+  .hero-lead { font-size: 1.1rem; color: #D5DEEB; max-width: 560px; }
+  .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+  .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; padding: 0; list-style: none; }
+  .hero-tags li { font-size: .9rem; font-weight: 600; padding: 6px 12px; border-radius: 999px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.18); color: #E6ECF5; }
+  .hero-art { position: relative; }
+  .hero-art svg { width: 100%; height: auto; filter: drop-shadow(0 20px 30px rgba(0,0,0,.35)); }
+
+  /* Sections */
+  section { padding: 84px 0; }
+  .section-alt { background: var(--bg-alt); }
+  .section-head { max-width: 720px; margin-bottom: 44px; }
+  .section-head.center { margin-left: auto; margin-right: auto; text-align: center; }
+  .section-head.center .eyebrow { justify-content: center; }
+  .section-head h2 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); font-weight: 800; margin-top: 10px; }
+  .section-head p { color: var(--muted); font-size: 1.05rem; }
+
+  /* About */
+  .about-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: start; }
+  .about-text p { color: #374151; }
+  .audience { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .audience-item { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; display: flex; gap: 12px; align-items: flex-start; }
+  .audience-item .ico { flex: none; width: 42px; height: 42px; border-radius: 10px; background: var(--orange-soft); color: var(--orange-dark); display: grid; place-items: center; }
+  .audience-item .ico svg { width: 22px; height: 22px; }
+  .audience-item h3 { font-size: 1rem; margin: 0 0 2px; }
+  .audience-item p { font-size: .92rem; color: var(--muted); margin: 0; }
+  .about-card { background: var(--navy); color: #fff; border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow); position: relative; overflow: hidden; }
+  .about-card::before { content: ""; position: absolute; right: -40px; top: -40px; width: 140px; height: 140px; border-radius: 50%; background: rgba(245,158,11,.18); }
+  .about-card h3 { color: #fff; font-size: 1.2rem; }
+  .about-card ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+  .about-card li { display: flex; gap: 10px; color: #D5DEEB; }
+  .about-card li::before { content: ""; flex: none; width: 8px; height: 8px; margin-top: 9px; background: var(--orange); transform: rotate(45deg); }
+
+  /* Services */
+  .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .service {
+    background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 28px 24px;
+    transition: transform .2s, box-shadow .2s, border-color .2s; position: relative;
+  }
+  .service:hover { transform: translateY(-4px); box-shadow: var(--shadow); border-color: transparent; }
+  .service::after { content: ""; position: absolute; left: 24px; right: 24px; bottom: 0; height: 3px; background: var(--orange); transform: scaleX(0); transform-origin: left; transition: transform .25s; border-radius: 3px; }
+  .service:hover::after { transform: scaleX(1); }
+  .service-ico { width: 64px; height: 64px; border-radius: 14px; background: var(--navy); display: grid; place-items: center; margin-bottom: 18px; }
+  .service-ico svg { width: 40px; height: 40px; }
+  .service h3 { font-size: 1.15rem; }
+  .service p { color: var(--muted); margin: 0; font-size: .97rem; }
+
+  /* Why */
+  .why { background: linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%); color: #fff; }
+  .why .section-head h2 { color: #fff; }
+  .why .section-head p { color: #C3CEDD; }
+  .why-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; counter-reset: why; }
+  .why-list li {
+    counter-increment: why; display: grid; grid-template-columns: 56px 1fr; gap: 16px;
+    background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.12); border-radius: var(--radius); padding: 22px;
+  }
+  .why-list li::before {
+    content: counter(why, decimal-leading-zero); width: 56px; height: 56px; border-radius: 12px;
+    background: var(--orange); color: var(--navy-deep); font-weight: 800; font-size: 1.2rem; display: grid; place-items: center;
+  }
+  .why-list h3 { color: #fff; font-size: 1.1rem; margin-bottom: 4px; }
+  .why-list p { margin: 0; color: #C3CEDD; font-size: .97rem; }
+
+  /* Process */
+  .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; position: relative; }
+  .steps::before { content: ""; position: absolute; top: 32px; left: 10%; right: 10%; height: 3px; background: repeating-linear-gradient(90deg, var(--orange) 0 14px, transparent 14px 24px); }
+  .step { position: relative; text-align: center; padding: 0 6px; }
+  .step-num { position: relative; width: 66px; height: 66px; margin: 0 auto 16px; border-radius: 50%; background: #fff; border: 3px solid var(--orange); color: var(--navy); display: grid; place-items: center; font-weight: 800; font-size: 1.35rem; box-shadow: 0 0 0 8px var(--bg-alt); }
+  .step h3 { font-size: 1.05rem; margin-bottom: 6px; }
+  .step p { color: var(--muted); font-size: .94rem; margin: 0; }
+
+  /* Quote + Contact */
+  .contact-grid { display: grid; grid-template-columns: 1.25fr 1fr; gap: 32px; align-items: start; }
+  .quote-form { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 30px; box-shadow: var(--shadow); }
+  .quote-form h3 { font-size: 1.35rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+  .field label { font-weight: 600; font-size: .93rem; color: var(--navy); }
+  .field label .req { color: #C2410C; }
+  .field input, .field select, .field textarea {
+    font: inherit; font-size: 16px; color: var(--ink); background: #fff;
+    border: 1.5px solid #CBD3DE; border-radius: 10px; padding: 11px 14px; min-height: 48px; width: 100%;
+  }
+  .field textarea { min-height: 96px; resize: vertical; }
+  .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--orange); box-shadow: 0 0 0 3px rgba(245,158,11,.25); }
+  .field .err { color: #B91C1C; font-size: .85rem; display: none; }
+  .field.invalid input, .field.invalid select { border-color: #DC2626; }
+  .field.invalid .err { display: block; }
+  .quote-form .btn { width: 100%; margin-top: 4px; }
+  .form-note { font-size: .88rem; color: var(--muted); margin: 12px 0 0; }
+  .form-status { display: none; margin-top: 14px; padding: 14px 16px; border-radius: 10px; background: var(--orange-soft); color: #78350F; font-size: .95rem; }
+  .form-status.show { display: block; }
+
+  .contact-card { background: var(--navy); color: #fff; border-radius: var(--radius); padding: 30px; }
+  .contact-card .logo-box { background: #fff; border-radius: 12px; padding: 6px; display: inline-block; margin-bottom: 18px; }
+  .contact-card .logo-box img { height: 84px; width: auto; }
+  .contact-card h3 { color: #fff; font-size: 1.05rem; letter-spacing: .01em; }
+  .contact-list { list-style: none; margin: 18px 0 0; padding: 0; display: grid; gap: 16px; }
+  .contact-list li { display: grid; grid-template-columns: 44px 1fr; gap: 12px; align-items: center; }
+  .contact-list .ico { width: 44px; height: 44px; border-radius: 10px; background: rgba(245,158,11,.15); color: var(--orange); display: grid; place-items: center; }
+  .contact-list .ico svg { width: 22px; height: 22px; }
+  .contact-list small { display: block; color: #9FB0C6; font-size: .82rem; }
+  .contact-list strong, .contact-list a { color: #fff; font-weight: 600; word-break: break-word; }
+  .contact-list a { text-decoration: none; border-bottom: 1px dashed rgba(245,158,11,.6); }
+  .contact-list a:hover { color: var(--orange); }
+  .pending { color: #FCD34D !important; font-weight: 600; }
+
+  /* Footer */
+  footer { background: var(--navy-deep); color: #9FB0C6; padding: 28px 0 32px; font-size: .9rem; }
+  footer .container { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; }
+  footer strong { color: #fff; }
+
+  /* Floating CTA (mobile) */
+  .float-cta {
+    position: fixed; z-index: 60; right: 16px; bottom: 16px; display: none;
+    box-shadow: 0 10px 28px rgba(11,28,54,.35);
+  }
+
+  /* Reveal */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .service, .btn { transition: none; }
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .services { grid-template-columns: repeat(2, 1fr); }
+    .steps { grid-template-columns: repeat(3, 1fr); row-gap: 32px; }
+    .steps::before { display: none; }
+  }
+  @media (max-width: 900px) {
+    .nav-links, .nav .nav-cta { display: none; }
+    .menu-toggle { display: grid; }
+    .nav-links.open {
+      display: flex; flex-direction: column; align-items: stretch; position: absolute; top: 72px; left: 0; right: 0;
+      background: #fff; border-bottom: 1px solid var(--line); padding: 10px 16px 18px; box-shadow: var(--shadow);
+    }
+    .nav-links.open a { padding: 14px 12px; }
+    .nav-links .mobile-cta { display: block; margin-top: 8px; }
+    .hero-inner { grid-template-columns: 1fr; padding: 48px 20px 64px; gap: 28px; }
+    .hero-art { order: -1; max-width: 520px; margin: 0 auto; width: 100%; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+    .why-list { grid-template-columns: 1fr; }
+    .float-cta { display: inline-flex; }
+    footer { padding-bottom: 96px; }
+  }
+  @media (min-width: 901px) { .nav-links .mobile-cta { display: none; } }
+  @media (max-width: 600px) {
+    section { padding: 60px 0; }
+    .container { padding: 0 16px; }
+    .hero-inner { padding: 36px 16px 56px; }
+    .brand img { height: 52px; }
+    .services, .audience, .form-row { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr; text-align: left; }
+    .step { display: grid; grid-template-columns: 66px 1fr; gap: 0 16px; text-align: left; }
+    .step-num { margin: 0; grid-row: span 2; }
+    .quote-form, .contact-card { padding: 22px; }
+    .hero-cta .btn { flex: 1 1 100%; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#noi-dung">Bỏ qua đến nội dung</a>
+
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="#" aria-label="Vận tải Sự Nghiệp – về đầu trang">
+      <img src="assets/logo.png" alt="Logo Sự Nghiệp" width="80" height="60">
+    </a>
+    <nav aria-label="Điều hướng chính">
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#gioi-thieu">Giới thiệu</a></li>
+        <li><a href="#dich-vu">Dịch vụ</a></li>
+        <li><a href="#uu-diem">Ưu điểm</a></li>
+        <li><a href="#quy-trinh">Quy trình</a></li>
+        <li><a href="#lien-he">Liên hệ</a></li>
+        <li class="mobile-cta"><a class="btn btn-primary" href="#bao-gia">Yêu cầu báo giá</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-primary nav-cta" href="#bao-gia">Yêu cầu báo giá</a>
+    <button class="menu-toggle" type="button" aria-controls="nav-links" aria-expanded="false" aria-label="Mở menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="noi-dung">
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-title" style="padding:0">
+    <div class="container hero-inner">
+      <div>
+        <span class="eyebrow">Vận tải hàng hóa bằng đường bộ</span>
+        <strong class="company-name">CÔNG TY TNHH DỊCH VỤ THƯƠNG MẠI VẬN TẢI DỰNG SỰ NGHIỆP</strong>
+        <h1 id="hero-title">Vận chuyển máy công trình <em>an toàn, vững chãi</em> trên mọi cung đường</h1>
+        <p class="hero-lead">Chúng tôi chuyên vận chuyển xe cẩu, máy gặt, máy lu và máy móc thiết bị công trình bằng đường bộ – chằng buộc chắc chắn, lộ trình được tính toán kỹ, giao đúng nơi, đúng hẹn.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#bao-gia">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>
+            Yêu cầu báo giá
+          </a>
+          <a class="btn btn-ghost" href="#dich-vu">Xem dịch vụ</a>
+        </div>
+        <ul class="hero-tags" aria-label="Loại máy vận chuyển">
+          <li>Xe cẩu</li><li>Máy gặt</li><li>Máy lu</li><li>Máy xúc, máy đào</li><li>Thiết bị công trình</li>
+        </ul>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <!-- Minh họa: xe đầu kéo rơ-moóc chở máy đào -->
+        <svg viewBox="0 0 640 380" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="g-sky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#1E3A63"/><stop offset="1" stop-color="#132B4F"/>
+            </linearGradient>
+            <linearGradient id="g-or" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#FBBF24"/><stop offset="1" stop-color="#F59E0B"/>
+            </linearGradient>
+          </defs>
+          <rect x="10" y="20" width="620" height="330" rx="28" fill="url(#g-sky)" opacity=".55"/>
+          <!-- hills -->
+          <path d="M10 270 Q120 200 230 250 T450 235 T630 245 V350 H10Z" fill="#0B1C36" opacity=".6"/>
+          <!-- road -->
+          <rect x="10" y="318" width="620" height="32" fill="#0B1C36"/>
+          <g fill="#F59E0B"><rect x="40" y="332" width="60" height="5" rx="2"/><rect x="160" y="332" width="60" height="5" rx="2"/><rect x="280" y="332" width="60" height="5" rx="2"/><rect x="400" y="332" width="60" height="5" rx="2"/><rect x="520" y="332" width="60" height="5" rx="2"/></g>
+
+          <!-- trailer deck (lowbed) -->
+          <path d="M48 262 H412 L440 232 H478 V250 H452 L428 278 H48 Z" fill="#E5E7EB"/>
+          <rect x="48" y="272" width="380" height="8" fill="#9CA3AF"/>
+          <!-- chains -->
+          <g stroke="#F59E0B" stroke-width="3" stroke-dasharray="4 3"><path d="M110 262 L132 226"/><path d="M332 262 L306 226"/></g>
+
+          <!-- excavator -->
+          <rect x="96" y="226" width="236" height="36" rx="18" fill="#1F2937"/>
+          <g fill="#4B5563"><circle cx="118" cy="244" r="10"/><circle cx="310" cy="244" r="10"/><circle cx="160" cy="244" r="6"/><circle cx="200" cy="244" r="6"/><circle cx="240" cy="244" r="6"/><circle cx="276" cy="244" r="6"/></g>
+          <rect x="150" y="214" width="150" height="14" fill="#374151"/>
+          <path d="M130 214 V170 Q130 158 142 158 H250 V214 Z" fill="url(#g-or)"/>
+          <rect x="118" y="178" width="26" height="36" rx="4" fill="#D97706"/>
+          <path d="M196 110 H246 Q256 110 256 120 V214 H196 Z" fill="url(#g-or)"/>
+          <path d="M204 120 H244 V160 H204 Z" fill="#BFDBFE" opacity=".9"/>
+          <path d="M204 120 H244 V160 H204 Z" fill="none" stroke="#0B1C36" stroke-width="3"/>
+          <!-- boom & stick folded forward -->
+          <path d="M250 190 L350 112 L368 128 L272 208 Z" fill="#F59E0B"/>
+          <path d="M350 112 L384 218 L364 222 L338 126 Z" fill="#D97706"/>
+          <path d="M360 210 Q400 214 404 250 L366 254 Q352 236 360 210 Z" fill="#374151"/>
+          <rect x="294" y="160" width="40" height="8" rx="4" transform="rotate(-38 314 164)" fill="#9CA3AF"/>
+          <text x="148" y="200" font-family="Be Vietnam Pro, Arial, sans-serif" font-size="13" font-weight="800" fill="#0B1C36">SỰ NGHIỆP</text>
+
+          <!-- truck tractor -->
+          <rect x="440" y="250" width="160" height="30" rx="6" fill="#1F2937"/>
+          <path d="M486 150 H566 Q580 150 586 164 L604 214 Q608 222 608 232 V262 H486 Z" fill="#132B4F" stroke="#F59E0B" stroke-width="3"/>
+          <path d="M540 164 H564 Q570 164 573 170 L588 210 H540 Z" fill="#BFDBFE" opacity=".95"/>
+          <rect x="498" y="164" width="32" height="46" rx="4" fill="#BFDBFE" opacity=".6"/>
+          <rect x="486" y="228" width="122" height="10" fill="#F59E0B"/>
+          <rect x="474" y="120" width="8" height="70" rx="3" fill="#9CA3AF"/>
+          <rect x="598" y="238" width="16" height="10" rx="3" fill="#FDE68A"/>
+          <!-- wheels -->
+          <g>
+            <g fill="#111827"><circle cx="92" cy="292" r="24"/><circle cx="146" cy="292" r="24"/><circle cx="200" cy="292" r="24"/><circle cx="472" cy="292" r="24"/><circle cx="574" cy="292" r="24"/></g>
+            <g fill="#9CA3AF"><circle cx="92" cy="292" r="10"/><circle cx="146" cy="292" r="10"/><circle cx="200" cy="292" r="10"/><circle cx="472" cy="292" r="10"/><circle cx="574" cy="292" r="10"/></g>
+          </g>
+          <!-- warning flag -->
+          <path d="M40 236 h22 v14 h-22z" fill="#F59E0B"/><rect x="38" y="236" width="3" height="40" fill="#9CA3AF"/>
+          <!-- speed lines -->
+          <g stroke="#F59E0B" stroke-width="4" stroke-linecap="round" opacity=".8"><path d="M14 170 H58"/><path d="M24 196 H70"/><path d="M14 222 H44"/></g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- GIỚI THIỆU -->
+  <section id="gioi-thieu" aria-labelledby="about-title">
+    <div class="container about-grid">
+      <div class="about-text reveal">
+        <span class="eyebrow">Về chúng tôi</span>
+        <h2 id="about-title" style="font-size:clamp(1.7rem,3.2vw,2.4rem);font-weight:800;margin-top:10px">Đối tác vận chuyển máy móc công trình đáng tin cậy</h2>
+        <p><strong>CÔNG TY TNHH DỊCH VỤ THƯƠNG MẠI VẬN TẢI DỰNG SỰ NGHIỆP</strong> (Vận tải Sự Nghiệp) hoạt động trong lĩnh vực vận tải hàng hóa bằng đường bộ, tập trung vào một việc chúng tôi làm tốt nhất: <strong>vận chuyển máy móc, thiết bị công trình hạng nặng</strong>.</p>
+        <p>Từ xe cẩu, máy lu, máy xúc đến máy gặt nông nghiệp – mỗi chuyến hàng đều được lên phương án riêng: khảo sát kích thước, tải trọng, lộ trình và cách chằng buộc phù hợp, để thiết bị của bạn đến nơi an toàn và sẵn sàng làm việc.</p>
+        <div class="audience" style="margin-top:24px">
+          <div class="audience-item">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6"/></svg></span>
+            <div><h3>Nhà thầu xây dựng</h3><p>Điều chuyển máy giữa các công trình.</p></div>
+          </div>
+          <div class="audience-item">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1zM16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></span>
+            <div><h3>Đơn vị cho thuê máy</h3><p>Giao – nhận máy tận công trường.</p></div>
+          </div>
+          <div class="audience-item">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V10M12 10c0-4 3-6 7-6 0 4-3 6-7 6zM12 14c0-3-2.5-5-6-5 0 3 2.5 5 6 5z"/></svg></span>
+            <div><h3>Nông nghiệp &amp; HTX</h3><p>Vận chuyển máy gặt theo mùa vụ.</p></div>
+          </div>
+          <div class="audience-item">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-6 9 6v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M8 21v-8h8v8"/></svg></span>
+            <div><h3>Đại lý &amp; chủ máy</h3><p>Giao máy mới, máy đi sửa chữa.</p></div>
+          </div>
+        </div>
+      </div>
+      <aside class="about-card reveal" aria-label="Cam kết của chúng tôi">
+        <h3>Cam kết của Sự Nghiệp</h3>
+        <ul>
+          <li>Tư vấn phương án vận chuyển phù hợp từng loại máy.</li>
+          <li>Báo giá rõ ràng trước khi nhận chuyến.</li>
+          <li>Chằng buộc, kê chèn thiết bị cẩn thận trước khi lăn bánh.</li>
+          <li>Thông báo tình trạng chuyến hàng cho khách trong suốt hành trình.</li>
+          <li>Bàn giao tận nơi, kiểm tra cùng khách khi nhận máy.</li>
+        </ul>
+        <a class="btn btn-primary" href="#bao-gia" style="margin-top:22px;width:100%">Nhận tư vấn &amp; báo giá</a>
+      </aside>
+    </div>
+  </section>
+
+  <!-- DỊCH VỤ -->
+  <section id="dich-vu" class="section-alt" aria-labelledby="services-title">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Dịch vụ vận tải</span>
+        <h2 id="services-title">Chúng tôi vận chuyển những gì?</h2>
+        <p>Chuyên các loại máy móc, thiết bị có kích thước và tải trọng lớn, cần phương tiện và cách xếp dỡ phù hợp.</p>
+      </div>
+      <div class="services">
+        <article class="service reveal">
+          <div class="service-ico"><svg viewBox="0 0 48 48" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M6 36h22v-8H12l-6 4z" fill="#F59E0B"/><circle cx="12" cy="38" r="4" fill="#fff"/><circle cx="24" cy="38" r="4" fill="#fff"/><path d="M18 28L42 10" stroke="#F59E0B" stroke-width="4"/><path d="M42 10v14" stroke="#fff" stroke-width="2"/><path d="M39 24h6l-3 4z" fill="#fff"/></svg></div>
+          <h3>Vận chuyển xe cẩu</h3>
+          <p>Xe cẩu bánh xích, cẩu bánh lốp và các bộ phận cần cẩu – tháo lắp, xếp dỡ theo hướng dẫn kỹ thuật.</p>
+        </article>
+        <article class="service reveal">
+          <div class="service-ico"><svg viewBox="0 0 48 48" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="18" width="24" height="14" rx="2" fill="#F59E0B"/><rect x="26" y="8" width="12" height="10" rx="1" fill="#fff"/><path d="M4 30h12v-6H6z" fill="#fff"/><path d="M5 27h10M7 24v6M11 24v6" stroke="#132B4F" stroke-width="1.5"/><rect x="16" y="32" width="24" height="7" rx="3.5" fill="#fff"/></svg></div>
+          <h3>Vận chuyển máy gặt</h3>
+          <p>Máy gặt đập liên hợp và máy nông nghiệp, phục vụ kịp thời theo mùa vụ giữa các vùng.</p>
+        </article>
+        <article class="service reveal">
+          <div class="service-ico"><svg viewBox="0 0 48 48" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="33" r="8" fill="#F59E0B"/><rect x="5" y="25" width="16" height="16" rx="8" fill="#F59E0B"/><circle cx="37" cy="35" r="6" fill="#fff"/><path d="M18 22h16l4 7v4H21" fill="#fff"/><rect x="24" y="10" width="11" height="12" rx="1" stroke="#fff" stroke-width="2.5"/><path d="M13 33h0" stroke="#132B4F" stroke-width="3"/></svg></div>
+          <h3>Vận chuyển máy lu</h3>
+          <p>Máy lu rung, lu tĩnh, lu bánh lốp các tải trọng – cố định chắc chắn, chống xê dịch khi di chuyển.</p>
+        </article>
+        <article class="service reveal">
+          <div class="service-ico"><svg viewBox="0 0 48 48" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="34" width="26" height="8" rx="4" fill="#fff"/><rect x="8" y="22" width="16" height="12" rx="1" fill="#F59E0B"/><rect x="14" y="16" width="9" height="8" rx="1" fill="#F59E0B"/><path d="M23 24L36 10l8 14" stroke="#F59E0B" stroke-width="4"/><path d="M40 24l4 0-3 6z" fill="#fff"/></svg></div>
+          <h3>Máy xúc, máy đào, máy ủi</h3>
+          <p>Thiết bị đào đắp, san lấp cho công trình giao thông, xây dựng dân dụng và công nghiệp.</p>
+        </article>
+        <article class="service reveal">
+          <div class="service-ico"><svg viewBox="0 0 48 48" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="14" width="32" height="22" rx="2" fill="#F59E0B"/><path d="M8 22h32M18 14v22M30 14v22" stroke="#132B4F" stroke-width="2"/><path d="M14 36v6M34 36v6" stroke="#fff" stroke-width="3"/><path d="M4 42h40" stroke="#fff" stroke-width="2.5"/></svg></div>
+          <h3>Thiết bị công trình khác</h3>
+          <p>Máy phát điện, trạm trộn, máy khoan, khung giàn và các thiết bị hạng nặng theo yêu cầu.</p>
+        </article>
+        <article class="service reveal">
+          <div class="service-ico"><svg viewBox="0 0 48 48" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M10 40c0-8 8-8 8-16s-8-8-8-14" stroke="#fff" stroke-width="3" stroke-dasharray="3 5"/><circle cx="10" cy="8" r="5" fill="#F59E0B"/><path d="M34 40s10-9 10-17a10 10 0 0 0-20 0c0 8 10 17 10 17z" fill="#F59E0B"/><circle cx="34" cy="23" r="4" fill="#132B4F"/></svg></div>
+          <h3>Vận chuyển theo yêu cầu</h3>
+          <p>Lên phương án riêng cho chuyến hàng đặc thù: khảo sát lộ trình, thời gian và điểm xếp dỡ.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ƯU ĐIỂM -->
+  <section id="uu-diem" class="why" aria-labelledby="why-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Vì sao chọn Sự Nghiệp</span>
+        <h2 id="why-title">Lý do khách hàng giao máy cho chúng tôi</h2>
+        <p>Máy công trình là tài sản lớn. Chúng tôi vận chuyển với tinh thần trách nhiệm như với tài sản của chính mình.</p>
+      </div>
+      <ol class="why-list">
+        <li class="reveal"><div><h3>Chuyên sâu máy công trình</h3><p>Tập trung vào xe cẩu, máy gặt, máy lu và thiết bị hạng nặng – hiểu đặc điểm từng loại máy để chọn cách xếp dỡ phù hợp.</p></div></li>
+        <li class="reveal"><div><h3>An toàn là ưu tiên hàng đầu</h3><p>Thiết bị được chằng buộc, kê chèn kỹ lưỡng và kiểm tra trước khi xuất phát để hạn chế tối đa rủi ro trên đường.</p></div></li>
+        <li class="reveal"><div><h3>Lộ trình được tính toán trước</h3><p>Khảo sát tuyến đường, chiều cao, tải trọng cầu đường và thời gian lưu thông phù hợp cho từng chuyến hàng.</p></div></li>
+        <li class="reveal"><div><h3>Báo giá minh bạch</h3><p>Báo giá rõ ràng theo loại máy, quãng đường và yêu cầu thực tế – thống nhất trước khi vận chuyển.</p></div></li>
+        <li class="reveal"><div><h3>Đúng hẹn, liên lạc xuyên suốt</h3><p>Chủ động cập nhật tình trạng chuyến hàng để khách hàng sắp xếp tiến độ thi công, mùa vụ.</p></div></li>
+        <li class="reveal"><div><h3>Bàn giao tận nơi</h3><p>Giao máy tại công trường, kho bãi hoặc cánh đồng theo yêu cầu, cùng khách kiểm tra khi nhận.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- QUY TRÌNH -->
+  <section id="quy-trinh" class="section-alt" aria-labelledby="process-title">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Quy trình làm việc</span>
+        <h2 id="process-title">5 bước – rõ ràng từ báo giá đến bàn giao</h2>
+      </div>
+      <ol class="steps">
+        <li class="step reveal"><span class="step-num">1</span><div><h3>Tiếp nhận yêu cầu</h3><p>Khách gửi thông tin loại máy, điểm đi – điểm đến, thời gian mong muốn.</p></div></li>
+        <li class="step reveal"><span class="step-num">2</span><div><h3>Khảo sát &amp; tư vấn</h3><p>Xác định kích thước, tải trọng, lộ trình và phương tiện phù hợp.</p></div></li>
+        <li class="step reveal"><span class="step-num">3</span><div><h3>Báo giá &amp; thống nhất</h3><p>Gửi báo giá chi tiết, thống nhất lịch trình trước khi thực hiện.</p></div></li>
+        <li class="step reveal"><span class="step-num">4</span><div><h3>Xếp dỡ &amp; vận chuyển</h3><p>Chằng buộc an toàn, vận chuyển theo lộ trình, cập nhật cho khách.</p></div></li>
+        <li class="step reveal"><span class="step-num">5</span><div><h3>Bàn giao</h3><p>Giao máy tận nơi, cùng khách kiểm tra và xác nhận hoàn thành.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- BÁO GIÁ + LIÊN HỆ -->
+  <section id="lien-he" aria-labelledby="contact-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Liên hệ</span>
+        <h2 id="contact-title">Cần vận chuyển máy? Gửi yêu cầu cho chúng tôi</h2>
+        <p>Điền thông tin chuyến hàng, chúng tôi sẽ liên hệ lại để tư vấn và báo giá.</p>
+      </div>
+      <div class="contact-grid">
+        <form class="quote-form reveal" id="bao-gia" novalidate>
+          <h3>Yêu cầu báo giá</h3>
+          <div class="form-row">
+            <div class="field">
+              <label for="f-name">Họ và tên <span class="req">*</span></label>
+              <input id="f-name" name="name" autocomplete="name" required>
+              <span class="err">Vui lòng nhập họ tên.</span>
+            </div>
+            <div class="field">
+              <label for="f-phone">Số điện thoại <span class="req">*</span></label>
+              <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required>
+              <span class="err">Vui lòng nhập số điện thoại hợp lệ.</span>
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-type">Loại máy cần vận chuyển <span class="req">*</span></label>
+            <select id="f-type" name="type" required>
+              <option value="">-- Chọn loại máy --</option>
+              <option>Xe cẩu</option>
+              <option>Máy gặt</option>
+              <option>Máy lu</option>
+              <option>Máy xúc / máy đào / máy ủi</option>
+              <option>Thiết bị công trình khác</option>
+            </select>
+            <span class="err">Vui lòng chọn loại máy.</span>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="f-from">Điểm đi</label>
+              <input id="f-from" name="from" placeholder="Tỉnh / huyện">
+            </div>
+            <div class="field">
+              <label for="f-to">Điểm đến</label>
+              <input id="f-to" name="to" placeholder="Tỉnh / huyện">
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-note">Thông tin thêm</label>
+            <textarea id="f-note" name="note" placeholder="Model máy, trọng lượng, thời gian dự kiến…"></textarea>
+          </div>
+          <button class="btn btn-primary" type="submit">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>
+            Gửi yêu cầu báo giá
+          </button>
+          <p class="form-note">Thông tin của bạn chỉ dùng để liên hệ tư vấn và báo giá.</p>
+          <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
+        </form>
+
+        <aside class="contact-card reveal" aria-label="Thông tin liên hệ">
+          <div class="logo-box"><img src="assets/logo.png" alt="Logo Vận tải Sự Nghiệp" width="112" height="84"></div>
+          <h3>CÔNG TY TNHH DỊCH VỤ THƯƠNG MẠI VẬN TẢI DỰNG SỰ NGHIỆP</h3>
+          <p style="color:#C3CEDD;margin:0">Vận tải máy móc thiết bị công trình xây dựng bằng đường bộ.</p>
+          <ul class="contact-list">
+            <li>
+              <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg></span>
+              <div><small>Email</small><span data-email><strong class="pending">Đang cập nhật</strong></span></div>
+            </li>
+            <li>
+              <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-7 8-13a8 8 0 0 0-16 0c0 6 8 13 8 13z"/><circle cx="12" cy="9" r="3"/></svg></span>
+              <div><small>Phạm vi phục vụ</small><strong>Vận tải đường bộ theo yêu cầu</strong></div>
+            </li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <span>© <span id="year">2026</span> <strong>CÔNG TY TNHH DỊCH VỤ THƯƠNG MẠI VẬN TẢI DỰNG SỰ NGHIỆP</strong></span>
+    <span>Vận chuyển xe cẩu · máy gặt · máy lu · máy công trình</span>
+  </div>
+</footer>
+
+<a class="btn btn-primary float-cta" href="#bao-gia">Yêu cầu báo giá</a>
+
+<script>
+  // Email liên hệ hiển thị trên trang. Điền email công ty vào đây khi có, ví dụ "lienhe@congty.vn".
+  var CONTACT_EMAIL = "";
+
+  (function () {
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    if (CONTACT_EMAIL) {
+      document.querySelectorAll("[data-email]").forEach(function (el) {
+        el.innerHTML = '<a href="mailto:' + CONTACT_EMAIL + '">' + CONTACT_EMAIL + "</a>";
+      });
+    }
+
+    // Mobile menu
+    var toggle = document.querySelector(".menu-toggle");
+    var links = document.getElementById("nav-links");
+    toggle.addEventListener("click", function () {
+      var open = links.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", open);
+      toggle.setAttribute("aria-label", open ? "Đóng menu" : "Mở menu");
+    });
+    links.addEventListener("click", function (e) {
+      if (e.target.closest("a")) { links.classList.remove("open"); toggle.setAttribute("aria-expanded", "false"); }
+    });
+
+    // Reveal on scroll
+    var items = document.querySelectorAll(".reveal");
+    if ("IntersectionObserver" in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } });
+      }, { threshold: 0.12 });
+      items.forEach(function (el) { io.observe(el); });
+    } else {
+      items.forEach(function (el) { el.classList.add("in"); });
+    }
+
+    // Quote form
+    var form = document.getElementById("bao-gia");
+    var status = document.getElementById("form-status");
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var ok = true;
+      var val = function (n) { return form.elements[n].value.trim(); };
+      var name = val("name"), phone = val("phone"), type = val("type");
+      [["name", name.length > 1], ["phone", /^[0-9+\s().-]{8,15}$/.test(phone)], ["type", !!type]].forEach(function (c) {
+        form.elements[c[0]].closest(".field").classList.toggle("invalid", !c[1]);
+        if (!c[1]) ok = false;
+      });
+      if (!ok) { form.querySelector(".invalid input, .invalid select").focus(); return; }
+
+      var body = "Họ tên: " + name + "\nSố điện thoại: " + phone + "\nLoại máy: " + type +
+        "\nĐiểm đi: " + val("from") + "\nĐiểm đến: " + val("to") +
+        "\nThông tin thêm: " + val("note");
+
+      if (CONTACT_EMAIL) {
+        window.location.href = "mailto:" + CONTACT_EMAIL + "?subject=" + encodeURIComponent("Yêu cầu báo giá vận chuyển – " + type) + "&body=" + encodeURIComponent(body);
+        status.textContent = "Ứng dụng email của bạn đã được mở với nội dung yêu cầu. Vui lòng bấm Gửi để hoàn tất.";
+      } else {
+        var done = function () { status.textContent = "Đã ghi nhận nội dung yêu cầu và sao chép vào bộ nhớ tạm. Email liên hệ của công ty đang được cập nhật – vui lòng quay lại sau hoặc gửi nội dung này khi có thông tin liên hệ."; status.classList.add("show"); };
+        if (navigator.clipboard) { navigator.clipboard.writeText(body).then(done, done); } else { done(); }
+      }
+      status.classList.add("show");
+    });
+    form.addEventListener("input", function (e) {
+      var f = e.target.closest(".field"); if (f) f.classList.remove("invalid");
+    });
+  })();
+</script>
+</body>
+</html>
